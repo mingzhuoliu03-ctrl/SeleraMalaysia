@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jesslyn Lau — Sales Manager, IA</title>
+  <style>
+    @font-face {
+      font-family: "Cormorant Garamond";
+      src: url("fonts/CormorantGaramond-Bold.ttf") format("truetype");
+      font-weight: 600 700;
+      font-style: normal;
+      font-display: block;
+    }
+    @font-face {
+      font-family: "Source Sans 3";
+      src: url("fonts/SourceSans3.ttf") format("truetype");
+      font-weight: 400 700;
+      font-style: normal;
+      font-display: block;
+    }
+
+    :root {
+      --ink: #1c2430;
+      --muted: #5a6573;
+      --line: #c9d2dc;
+      --panel: #e8eef3;
+      --accent: #2f4a63;
+      --dot-on: #2f4a63;
+      --dot-off: #c5ced8;
+      --bg: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    html, body {
+      background: #d9dee5;
+      color: var(--ink);
+      font-family: "Source Sans 3", "Segoe UI", sans-serif;
+      font-size: 9.6pt;
+      line-height: 1.38;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page {
+      width: 210mm;
+      height: 297mm;
+      margin: 0 auto;
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .header {
+      background: linear-gradient(180deg, #f4f7fa 0%, var(--panel) 100%);
+      text-align: center;
+      padding: 8mm 12mm 5.5mm;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .photo {
+      width: 28mm;
+      height: 28mm;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2.5px solid #fff;
+      box-shadow: 0 1px 0 1px var(--line);
+      margin: 0 auto 3mm;
+      display: block;
+    }
+
+    .name {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 26pt;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+      line-height: 1.05;
+    }
+
+    .title {
+      margin-top: 1.8mm;
+      font-size: 10pt;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .body {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 64mm 1fr;
+      min-height: 0;
+    }
+
+    .sidebar {
+      background: linear-gradient(180deg, #f7fafc 0%, #eef3f7 100%);
+      padding: 5.5mm 5.5mm 6mm;
+      border-right: 1px solid var(--line);
+    }
+
+    .main {
+      padding: 5.5mm 7mm 6mm 6.5mm;
+    }
+
+    .section {
+      margin-bottom: 4.2mm;
+    }
+
+    .section:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-title {
+      font-size: 8.8pt;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-bottom: 1.5px solid var(--accent);
+      padding-bottom: 1.1mm;
+      margin-bottom: 2.2mm;
+    }
+
+    .profile-text {
+      color: var(--muted);
+      font-size: 8.8pt;
+      text-align: justify;
+      hyphens: auto;
+    }
+
+    .info-list,
+    .contact-list,
+    .skills-list {
+      list-style: none;
+    }
+
+    .info-list li,
+    .contact-list li {
+      margin-bottom: 1.2mm;
+      color: var(--ink);
+      font-size: 8.9pt;
+      word-break: break-word;
+    }
+
+    .contact-list li {
+      display: grid;
+      grid-template-columns: 4.2mm 1fr;
+      gap: 2mm;
+      align-items: start;
+    }
+
+    .icon {
+      width: 3.6mm;
+      height: 3.6mm;
+      margin-top: 1.1mm;
+      color: var(--accent);
+    }
+
+    .skills-list {
+      display: grid;
+      gap: 0.9mm;
+    }
+
+    .skills-list li {
+      position: relative;
+      padding-left: 3.6mm;
+      font-size: 8.7pt;
+      color: var(--ink);
+    }
+
+    .skills-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 2.1mm;
+      width: 1.6mm;
+      height: 1.6mm;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .lang-row {
+      display: grid;
+      grid-template-columns: 20mm 1fr;
+      align-items: center;
+      margin-bottom: 1.4mm;
+      font-size: 8.8pt;
+    }
+
+    .dots {
+      display: flex;
+      gap: 1.5mm;
+    }
+
+    .dot {
+      width: 2.6mm;
+      height: 2.6mm;
+      border-radius: 50%;
+      background: var(--dot-off);
+    }
+
+    .dot.on {
+      background: var(--dot-on);
+    }
+
+    .availability {
+      font-size: 9pt;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .job {
+      margin-bottom: 3.6mm;
+    }
+
+    .job:last-child {
+      margin-bottom: 0;
+    }
+
+    .job-title {
+      font-size: 10pt;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+
+    .job-meta {
+      margin-top: 0.5mm;
+      margin-bottom: 1.4mm;
+      font-size: 8.6pt;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .bullets {
+      padding-left: 3.8mm;
+    }
+
+    .bullets li {
+      margin-bottom: 0.9mm;
+      padding-left: 0.8mm;
+      color: var(--ink);
+      font-size: 8.8pt;
+    }
+
+    .bullets li::marker {
+      color: var(--accent);
+    }
+
+    .edu-item {
+      margin-bottom: 2.6mm;
+    }
+
+    .edu-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .edu-title {
+      font-size: 9.5pt;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .edu-meta {
+      margin-top: 0.4mm;
+      font-size: 8.6pt;
+      color: var(--muted);
+    }
+
+    .edu-school {
+      margin-top: 0.3mm;
+      font-size: 8.5pt;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    @media screen {
+      body { padding: 16px 0 32px; }
+      .page {
+        box-shadow: 0 12px 40px rgba(28, 36, 48, 0.18);
+      }
+    }
+
+    @media print {
+      html, body {
+        background: #fff;
+        width: 210mm;
+        height: 297mm;
+      }
+      .page {
+        box-shadow: none;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <img class="photo" src="photo.jpg" alt="Jesslyn Lau" />
+      <h1 class="name">Jesslyn Lau</h1>
+      <p class="title">Sales Manager, IA</p>
+    </header>
+
+    <div class="body">
+      <aside class="sidebar">
+        <section class="section">
+          <h2 class="section-title">Profile</h2>
+          <p class="profile-text">
+            Dedicated and results-driven sales professional with 8 years of experience in sales engineering. Proven ability to manage key accounts and projects while consistently exceeding revenue benchmarks.
+          </p>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">Info</h2>
+          <ul class="info-list">
+            <li>Malaysian</li>
+            <li>Singapore PR</li>
+            <li>29 Nov 1994</li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">Contact</h2>
+          <ul class="contact-list">
+            <li>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.81.36 1.6.7 2.35a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.73-1.27a2 2 0 0 1 2.11-.45c.75.34 1.54.57 2.35.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>(+65) 8363 9508</span>
+            </li>
+            <li>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 7 8 6 8-6"/></svg>
+              <span>nylssej_ual@hotmail.com</span>
+            </li>
+            <li>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.2-7-11a7 7 0 1 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              <span>488 Admiralty Link, 750488 Singapore</span>
+            </li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">Skills</h2>
+          <ul class="skills-list">
+            <li>Accounts Management</li>
+            <li>Business Development</li>
+            <li>Project Planning</li>
+            <li>Sales Process</li>
+            <li>Engineering Documentation</li>
+            <li>Autodesk Viewer</li>
+            <li>Sales Analysis</li>
+            <li>Forecast Planning</li>
+            <li>Inventory Control</li>
+            <li>Microsoft Office</li>
+            <li>SAP / ERP Systems</li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">Languages</h2>
+          <div class="lang-row">
+            <span>English</span>
+            <div class="dots" aria-label="4 out of 5">
+              <span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span>
+            </div>
+          </div>
+          <div class="lang-row">
+            <span>Mandarin</span>
+            <div class="dots" aria-label="5 out of 5">
+              <span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span>
+            </div>
+          </div>
+          <div class="lang-row">
+            <span>Malay</span>
+            <div class="dots" aria-label="4 out of 5">
+              <span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">Availability</h2>
+          <p class="availability">1 Month Notice</p>
+        </section>
+      </aside>
+
+      <main class="main">
+        <section class="section">
+          <h2 class="section-title">Career Summary</h2>
+
+          <article class="job">
+            <h3 class="job-title">Industrial Automation (IA) Sales Manager</h3>
+            <p class="job-meta">Delta Electronics &nbsp;|&nbsp; Sep 2025 – Dec 2025</p>
+            <ul class="bullets">
+              <li>Led Industrial Automation (IA) sales for the Singapore market, managing distributors and key customer accounts.</li>
+              <li>Responsible for SG market coverage — driving revenue through distributor partnerships and direct sales engagement.</li>
+              <li>Developed automation solutions and proposals tailored to customer requirements.</li>
+              <li>Coordinated quotations, negotiations, and sales follow-up to close deals.</li>
+            </ul>
+          </article>
+
+          <article class="job">
+            <h3 class="job-title">Deputy Sales Manager</h3>
+            <p class="job-meta">Hiwin Singapore Pte Ltd &nbsp;|&nbsp; Jan 2018 – Present</p>
+            <ul class="bullets">
+              <li>Served key customers across Medical, Life Science, Semiconductor, Automation, Transportation, Electronics, and related industries.</li>
+              <li>Built and strengthened customer relationships while developing new accounts.</li>
+              <li>Analysed requirements and proposed optimised solutions with specifications, drawings, and proposals.</li>
+              <li>Negotiated pricing, issued quotations, and followed up closely to close deals.</li>
+              <li>Monitored forecasts and collaborated on materials planning and inventory control.</li>
+              <li>Provided pre-sales technical assistance, after-sales support, and product demonstrations.</li>
+            </ul>
+          </article>
+
+          <article class="job">
+            <h3 class="job-title">Process Engineer (Internship)</h3>
+            <p class="job-meta">Texas Instruments Malaysia Sdn Bhd &nbsp;|&nbsp; Mar 2016 – Jun 2016</p>
+            <ul class="bullets">
+              <li>Evaluated and improved processes and controls for production rate, efficiency, quality, and yield at optimum cost.</li>
+              <li>Supported manufacturing operations within Process Engineering controls, procedures, and product specifications.</li>
+              <li>Owned and executed process improvement projects.</li>
+            </ul>
+          </article>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">Educational Training</h2>
+
+          <div class="edu-item">
+            <h3 class="edu-title">Bachelor (Hons.) Degree of Electronics Engineering</h3>
+            <p class="edu-meta">2013 – 2017 &nbsp;|&nbsp; CGPA: 3.26</p>
+            <p class="edu-school">Multimedia University Malacca, Malaysia</p>
+          </div>
+
+          <div class="edu-item">
+            <h3 class="edu-title">Foundation of Engineering</h3>
+            <p class="edu-meta">2012 – 2013 &nbsp;|&nbsp; CGPA: 3.64</p>
+            <p class="edu-school">Multimedia University Malacca, Malaysia</p>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
